@@ -21,8 +21,20 @@ export default function App() {
       </header>
 
       <div className="controls">
-        <SearchBar value={query} onChange={setQuery} />
-        <StatusFilter value={status} onChange={setStatus} />
+        <SearchBar
+          value={query}
+          onChange={(newQuery) => {
+            setQuery(newQuery);
+            setPage(1);
+          }}
+        />
+        <StatusFilter
+          value={status}
+          onChange={(newStatus) => {
+            setStatus(newStatus);
+            setPage(1);
+          }}
+        />
       </div>
 
       <TaskTable tasks={tasks} loading={loading} error={error} />
